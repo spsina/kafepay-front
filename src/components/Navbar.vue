@@ -3,6 +3,7 @@
         <div class="backgroundnav">
             <p style="font-style: italic; font-weight: bold; margin-top: 13px; color: #fafafa; font-size: 25px;">
                 CafePay
+                
             </p>
         </div>
         <div class="contentnav">
