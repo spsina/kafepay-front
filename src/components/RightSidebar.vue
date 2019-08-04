@@ -32,4 +32,7 @@
 </script>
 
 <style scoped>
+#right-menu .item {
+    text-align: right;
+}
 </style>
