@@ -3,7 +3,7 @@
         <div class="item">
             <div class="ui icon input desk-only" id="rightsearchbar">
                 <i class="search icon"></i>
-                <input type="text" placeholder="Search...">
+                <input type="text" placeholder="جستجو...">
             </div>
         </div>
     </div>
