@@ -6,6 +6,9 @@
                 <input type="text" placeholder="جستجو...">
             </div>
         </div>
+        <div class="item">
+            آیتم
+        </div>
     </div>
 </template>
 
