@@ -3,9 +3,10 @@
         <div class="backgroundnav">
             <p style="font-style: italic; font-weight: bold; margin-top: 13px; color: #fafafa; font-size: 25px;">
                 CafePay
-                
+
             </p>
         </div>
+        
         <div class="contentnav">
             <a class="item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a>
         </div>
