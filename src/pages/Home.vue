@@ -12,7 +12,35 @@
         <div class="ui vertical stripe segment" id="start" style="margin-top: 0px; padding-top:9px;">
             <div class="ui middle aligned stackable grid container">
                 <h4 class="ui horizontal header divider" style="text-align: center; width: 100%;">
-                <a style="font-size:140%;" href="#">یک کامیونیتی حرفه ای</a>
+                <a style="font-size:140%;" href="#">پرداخت آسان</a>
+                </h4>
+                <div class="row">
+                    <div class="six wide left floated column">
+                        <img src="static/community.svg" class="ui large rounded image" style="border-radius: 15px;">
+                    </div>
+                    <div class="ten wide column center aligned">
+                        <h3 class="ui header">پرداخت آسان</h3>
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                        </p> 
+                    </div>
+                </div>
+                <h4 class="ui horizontal header divider" style="text-align: center; width: 100%;">
+                <a style="font-size:140%;" href="#">پرداخت آسان</a>
+                </h4>
+                <div class="row">
+                    <div class="six wide left floated column">
+                        <img src="static/community.svg" class="ui large rounded image" style="border-radius: 15px;">
+                    </div>
+                    <div class="ten wide column center aligned">
+                        <h3 class="ui header">پرداخت آسان</h3>
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                        </p> 
+                    </div>
+                </div>
+                <h4 class="ui horizontal header divider" style="text-align: center; width: 100%;">
+                <a style="font-size:140%;" href="#">پرداخت آسان</a>
                 </h4>
                 <div class="row">
                     <div class="six wide left floated column">
@@ -51,12 +79,12 @@ h5 {
   display: none;
 }
 #header {
-  background: url('https://cdn.vox-cdn.com/thumbor/vjHQ6cyGpVmaYBQS5j1k1_SBsGk=/0x0:4670x3113/920x613/filters:focal(2161x1180:2907x1926):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/58133847/180991466.jpg.0.jpg');
+  background: url('../assets/banner.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 .masthead.segment {
-  min-height: 600px;
+  min-height: 700px;
 
   background-size: cover;
   padding: 1em 0em;

@@ -15,7 +15,7 @@
     var x = 0;
     function refreshNavbar(){
         $(document).ready(function() {
-            let headerHeight = document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 80, 0) : 0;
+            let headerHeight = document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight, 0) : 0;
             if ($(window).scrollTop() <= headerHeight) {
                 if(x != 1){
                     x = 1;
@@ -26,14 +26,14 @@
                         .css("background", "none");
                     } else {
                         $(".menu.secondary")
-                        .css("background-color", "#7777ee");
+                        .css("background-color", "#333333");
                     }
                 }
             }
             else if(x != 2) {
                 x = 2;
                 $(".menu.secondary").animate({ paddingTop: "0px", paddingBottom: "0px" }, "fast")
-                .css("background-color", "#7777ee");
+                .css("background-color", "#333333");
             }
         });
     };
