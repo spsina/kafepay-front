@@ -1,5 +1,5 @@
 <template>
-    <div dir="rtl" id="nav" class="ui large inverted pointing menu fixed secondary" style="border: 0px;">
+    <div v-if="$route.name != 'login' && $route.name != 'register'" dir="rtl" id="nav" class="ui large inverted pointing menu fixed secondary" style="border: 0px;">
         <div class="backgroundnav">
             <p style="font-style: italic; font-weight: bold; margin-top: 13px; color: #fafafa; font-size: 25px;">
                 CafePay
@@ -12,10 +12,9 @@
         <div class="contentnav">
             <div class="item">
 
-                <a class="item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a>
-                <a>
-                    ورود / ثبت نام
-                </a>
+                <a class="cafepay-right-item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a>
+                <router-link :to="{name: 'register'}" tag="a" class="cafepay-right-item">ثبت نام</router-link>
+                <router-link :to="{name: 'login'}" tag="a" class="cafepay-right-item">ورود</router-link>
             </div>
             
         </div>
@@ -26,7 +25,7 @@
     var x = 0;
     function refreshNavbar(){
         $(document).ready(function() {
-            let headerHeight = document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight, 0) : 0;
+            let headerHeight = document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 60, 0) : 0;
             if ($(window).scrollTop() <= headerHeight) {
                 if(x != 1){
                     x = 1;
@@ -65,6 +64,9 @@
 </script>
 
 <style scoped>
+.cafepay-right-item {
+    padding: 3px 10px;
+}
 #nav {
     padding-top: 5px;
     padding-bottom: 5px;

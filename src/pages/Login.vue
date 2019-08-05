@@ -1,34 +1,32 @@
 <template>
-  <div class="ui middle aligned center aligned grid" style="margin-top: 3em;">
-    <div class="column">
-      <h2 class="ui teal header">
-        <div class="content">
-          Login to your account
+  <div class="ui middle aligned center aligned grid" style="margin-top: 7em;">
+    <div class="column" style="background-color: white; border: 1px solid #999999; border-radius: 15px; padding: 0px; box-shadow: 3px;">
+      <h2 class="ui black header" style="background-color: #cccccc; border-radius: 15px 15px 0px 0px; padding: 15px; margin: 0px;">
+        <div class="content" style="font-size: 25px; font-style: italic; color: #444444;">
+          CafePay
         </div>
       </h2>
       <form class="ui large form">
         <div class="ui stacked segment">
           <div class="field">
-            <div class="ui left icon input">
+            <div class="ui right icon input">
               <i class="user icon"></i>
-              <input type="text" name="username" v-model="user.username" placeholder="Email">
+              <input type="text" style="text-align: right; border-radius: 5px; border: 1px solid #cacaca !important;" name="username" v-model="user.username" placeholder="نام کاربری">
             </div>
           </div>
           <div class="field">
-            <div class="ui left icon input">
+            <div class="ui right icon input">
               <i class="lock icon"></i>
-              <input type="password" name="password" v-model="user.password" placeholder="Password">
+              <input type="password" style="text-align: right; border-radius: 5px; border: 1px solid #cacaca !important;" name="password" v-model="user.password" placeholder="کلمه عبور">
             </div>
           </div>
-          <div class="ui fluid large teal submit button">Login</div>
+          <div class="ui fluid large blue submit button">ورود</div>
         </div>
-
-        <div class="ui error message"></div>
 
       </form>
 
-      <div class="ui message">
-        New to us? <router-link :to="{name: 'register'}" tag="a">Sign Up</router-link>
+      <div class="ui message" style="border-radius: 0px 0px 15px 15px; background-color: #dddddd; border: 0px;">
+        حساب ندارید؟ <router-link :to="{name: 'register'}" tag="a">ثبت نام کنید</router-link>
       </div>
     </div>
   </div>
@@ -46,44 +44,6 @@ export default {
       },
       loading: false
     };
-  },
-  methods: {
-    submit() {
-      this.loading = true;
-      var vinst = this;
-      axios
-        .post(this.$store.state.obtainTokenEndpoint,
-        this.user,
-        {
-          headers: {
-            // 'Access-Control-Allow-Origin': '*',
-            "Content-type": "application/json"
-          }
-        })
-        .then(response => {
-          console.log("hey")
-          // alert("Logged in successfully");
-          this.$store.commit("updateToken", response.data.key);
-          if (this.$route.query.next) {
-            this.$router.push(this.$route.query.next);
-          } else {
-            this.$router.push({ name: "projects" });
-          }
-          vinst.loading = false;
-        })
-        .catch(error => {
-          console.log("hey")
-          if (error.response) {
-            console.log(error.response);
-            alert("Invalid Email or Password");
-          } else {
-            alert("Couldn't get server response");
-          }
-          console.log(error);
-          this.$store.commit("removeToken");
-          vinst.loading = false;
-        });
-    }
   },
   created(){
     var vinst = this;
