@@ -10,7 +10,14 @@
         
 
         <div class="contentnav">
-            <a class="item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a>
+            <div class="item">
+
+                <a class="item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a>
+                <a>
+                    ورود / ثبت نام
+                </a>
+            </div>
+            
         </div>
     </div>
 </template>
