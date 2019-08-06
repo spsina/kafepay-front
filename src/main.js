@@ -31,9 +31,9 @@ new Vue({
   render: h => h(Navbar)
 })
 
-new Vue({
-  el: '#rightsidebarcomponent',
-  router,
-  // store,
-  render: h => h(RightSidebar)
-})
+// new Vue({
+//   el: '#rightsidebarcomponent',
+//   router,
+//   // store,
+//   render: h => h(RightSidebar)
+// })

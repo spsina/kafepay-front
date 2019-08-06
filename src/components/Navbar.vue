@@ -1,5 +1,6 @@
 <template>
-    <div v-if="$route.name != 'login' && $route.name != 'register'" dir="rtl" id="nav" class="ui large inverted pointing menu fixed secondary" style="border: 0px;">
+    <!-- <div v-if="$route.name != 'login' && $route.name != 'register'" dir="rtl" id="nav" class="ui large inverted pointing menu fixed secondary" style="border: 0px;"> -->
+    <div v-if="$route.name == 'home'" dir="rtl" id="nav" class="ui large inverted pointing menu fixed secondary" style="border: 0px;">
         <div class="backgroundnav">
             <p style="font-style: italic; font-weight: bold; margin-top: 13px; color: #fafafa; font-size: 25px;">
                 CafePay

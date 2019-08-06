@@ -2,9 +2,9 @@
   <div class="ui middle aligned center aligned grid" style="margin-top: 7em;">
     <div class="column" style="background-color: white; border: 1px solid #999999; border-radius: 15px; padding: 0px; box-shadow: 3px;">
       <h2 class="ui black header" style="background-color: #cccccc; border-radius: 15px 15px 0px 0px; padding: 15px; margin: 0px;">
-        <div class="content" style="font-size: 25px; font-style: italic; color: #444444;">
+        <router-link :to="{name: 'home'}" tag="a" class="content" style="font-size: 25px; font-style: italic; color: #444444;">
           CafePay
-        </div>
+        </router-link>
       </h2>
       <form class="ui large form">
         <div class="ui stacked segment">
