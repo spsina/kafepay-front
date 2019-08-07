@@ -1,5 +1,5 @@
 <template>
-  <div class="ui pusher" :style="{backgroundColor: bgcolor}">
+  <div class="ui pusher" style="height: 100%;" :style="{backgroundColor: bgcolor}">
 
     <router-view></router-view>
   </div>
