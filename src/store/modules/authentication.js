@@ -13,6 +13,7 @@ const getters = {
 
 const mutations = {
   updateToken (state, newToken) {
+    localStorage.setItem('token', newToken);
     state.api_token = newToken
   },
   removeToken (state) {
