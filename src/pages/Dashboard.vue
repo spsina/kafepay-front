@@ -6,7 +6,7 @@
   <div class="three wide column ui visible inverted right vertical menu" style="min-height: 100%; padding: 1px;">
       <div class="item center aligned right-menu-profile-holder" style="text-align: center; margin: auto;">
           
-              <img class="ui small image circular" src="../assets/user.svg" style="margin: 10px auto;">
+              <img class="ui small image circular" src="/assets/user.svg" style="margin: 10px auto;">
           
 
           <!-- <p style="font-size: 17px; color: #FFFFFF; margin-bottom: 10px;

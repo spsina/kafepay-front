@@ -79,7 +79,7 @@ h5 {
   display: none;
 }
 #header {
-  background: url('../assets/banner.jpg');
+  background: url('/assets/banner.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
