@@ -10,6 +10,8 @@ import Dashboard from './pages/Dashboard.vue';
 import DashboardHome from './pages/dashboard/DashboardHome.vue';
 import NewProduct from './pages/dashboard/NewProduct.vue';
 import Products from './pages/dashboard/Products.vue';
+import NewGate from './pages/dashboard/NewGate.vue';
+import Gates from './pages/dashboard/Gates.vue';
 
 export const routes = [
     {
@@ -51,6 +53,16 @@ export const routes = [
                 path:'products',
                 component: Products,
                 name: 'dashboard-products'
+            },
+            {
+                path:'new-gate',
+                component: NewGate,
+                name: 'dashboard-new-gate'
+            },
+            {
+                path:'gates',
+                component: Gates,
+                name: 'dashboard-gates'
             }
         ]
     },

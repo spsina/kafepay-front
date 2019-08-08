@@ -10,7 +10,8 @@
       <form class="ui large form">
           <div class="ui active inverted dimmer" v-if="loading">
               <div class="ui text loader" dir="rtl">در حال بارگذاری...</div>
-          </div>        <div class="ui stacked segment">
+          </div>
+          <div class="ui stacked segment">
           <div class="field">
             <div class="ui right icon input">
               <i class="user icon"></i>

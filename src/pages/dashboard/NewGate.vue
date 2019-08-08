@@ -9,21 +9,21 @@
                 </div>
                 <div class="field">
                     <p>
-                        عنوان محصول
+                        عنوان درگاه
                     </p>
-                    <input @keypress.enter="submit" v-model="product.title" style="text-align: right; border-radius: 5px; border: 2px solid #cacaca !important;" type="text" name="title">
+                    <input @keypress.enter="submit" v-model="gate.title" style="text-align: right; border-radius: 5px; border: 2px solid #cacaca !important;" type="text" name="title">
                 </div>
                 <div class="field">
                     <p>
-                        شرح جزییات محصول
+                        شرح جزییات درگاه
                     </p>
-                    <textarea v-model="product.description" style="text-align: right; border-radius: 5px; border: 2px solid #cacaca !important;" name="description"></textarea>
+                    <textarea v-model="gate.description" style="text-align: right; border-radius: 5px; border: 2px solid #cacaca !important;" name="description"></textarea>
                 </div>
                 <div class="inline field" dir="rtl">
                     <p>
-                        قیمت
+                        آدرس سایت
                     </p>
-                    <input @keypress.enter="submit" v-model="product.price" style="text-align: right; border-radius: 5px; border: 2px solid #cacaca !important;" type="number" name="price">
+                    <input @keypress.enter="submit" v-model="gate.url" dir="ltr" style="text-align: left; border-radius: 5px; border: 2px solid #cacaca !important;" type="text" name="url">
                 </div>
                 <div style="text-align: center;">
                     <input @click="submit" class="ui positive button" value="ارسال" type="submit">
@@ -38,10 +38,10 @@ export default {
     data(){
         return {
             loading: false,
-            product: {
+            gate: {
                 title: null,
                 description: null,
-                price: 100,
+                url: null,
             }
         }
     },
@@ -52,8 +52,8 @@ export default {
                 console.log(localStorage.getItem('token'));
                 console.log(this.$store.getters.api_token)
                 this.axios
-                    .post(hostUrl + '/api/create/product/?format=json',
-                    this.product,
+                    .post(hostUrl + '/api/create/gate/?format=json',
+                    this.gate,
                     {
                         headers: {
                             Authorization: "Token " + this.$store.getters.api_token,
@@ -62,7 +62,7 @@ export default {
                     })
                     .then(response => {
                         alert('با موفقیت ثبت شد');
-                        this.$router.push({name: 'dashboard-products'});
+                        this.$router.push({name: 'dashboard-gates'});
                         this.loading = false;
                     })
                     .catch(error => {
@@ -101,8 +101,8 @@ export default {
                   }
                 ]
               },
-              price: {
-                identifier  : 'price',
+              url: {
+                identifier  : 'url',
                 rules: [
                   {
                     type   : 'empty',

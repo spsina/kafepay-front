@@ -6,7 +6,7 @@
   <div class="three wide column ui visible inverted right vertical menu" style="min-height: 100%; padding: 1px;">
       <div class="item center aligned right-menu-profile-holder" style="text-align: center; margin: auto;">
           
-              <img class="ui small image circular" src="/assets/user.svg" style="margin: 10px auto;">
+              <img class="ui small image circular" src="../assets/user.svg" style="margin: 10px auto;">
           
 
           <!-- <p style="font-size: 17px; color: #FFFFFF; margin-bottom: 10px;
@@ -43,6 +43,20 @@
             <router-link :to="{name: 'dashboard-products'}" tag="a">
               <div class="content">
                   محصولات
+              </div>
+            </router-link>
+        </div>
+        <div class="item" :class="{'active': $route.name=='dashboard-new-gate'}" style="text-align: right; padding-right: 25px;">
+            <router-link :to="{name: 'dashboard-new-gate'}" tag="a">
+              <div class="content">
+                  درگاه پرداخت جدید
+              </div>
+            </router-link>
+        </div>
+        <div class="item" :class="{'active': $route.name=='dashboard-gates'}" style="text-align: right; padding-right: 25px;">
+            <router-link :to="{name: 'dashboard-gates'}" tag="a">
+              <div class="content">
+                  لیست درگاه ها
               </div>
             </router-link>
         </div>
