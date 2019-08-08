@@ -46,13 +46,13 @@
               </div>
             </router-link>
         </div>
-        <div class="item" style="text-align: right; padding-right: 25px;">
+        <!-- <div class="item" style="text-align: right; padding-right: 25px;">
             <a href="/dashboard">
               <div class="content">
                   خروج
               </div>
             </a>
-        </div>
+        </div> -->
   </div>
 </div>
 </template>

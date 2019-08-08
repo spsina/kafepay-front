@@ -1,6 +1,9 @@
 <template>
   <div class="ui middle aligned center aligned grid" style="padding-top: 7em; padding-bottom: 7em;">
-    <div class="column" style="background-color: white; border: 1px solid #999999; border-radius: 15px; padding: 0px; box-shadow: 3px;">
+    <div class="ui active dimmer" v-if="loading">
+        <div class="ui text loader" dir="rtl">در حال بارگذاری...</div>
+    </div>
+    <div v-else class="column" style="background-color: white; border: 1px solid #999999; border-radius: 15px; padding: 0px; box-shadow: 3px;">
       <h2 class="ui black header" style="background-color: #cccccc; border-radius: 15px 15px 0px 0px; padding: 15px; margin: 0px;">
         <router-link :to="{name: 'home'}" tag="a" class="content" style="font-size: 25px; font-style: italic; color: #444444;">
           KafePay
@@ -39,26 +42,43 @@
 </template>
 
 <script>
-import axios from "axios";
+import { hostUrl } from "../config";
 
 export default {
-  data() {
-    return {
-        product: {
-            title: 'دمپایی',
-            description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
-            price: '۲۰۰۰۰۰ تومان',
-            link: 'http://kaafepay.ir/payment/2r3ior23-awfef2g-afew23-fwaef'
+    data(){
+        return {
+            loading: true,
+            product: null
+        }
+    },
+    methods: {
+        submitPayment(){
+            alert('درگاه پرداخت فعال وجود ندارد')
         },
-        name: '',
-    };
-  },
-  methods: {
-    submitPayment(){
-      alert('درگاه پرداخت فعال وجود ندارد')
+        loadProduct(){
+            console.log(this.$route.params.payment_id)
+            this.axios
+                .get(hostUrl + '/api/detail/products/' + this.$route.params.payment_id + '/?format=json',
+                {
+                    headers: {
+                        "Content-type": "application/json"
+                    }
+                })
+                .then(response => {
+                    this.product = response.data;
+                    this.loading = false;
+                })
+                .catch(error => {
+                    alert('خطا در اتصال به سرور')
+                })
+        }
+    },
+    created(){
+        if(!this.product){
+            this.loadProduct();
+        }
     }
-  },
-};
+}
 </script>
 
 <style scoped>
