@@ -58,24 +58,15 @@
 </template>
 
 <script>
-$(document).ready(function(){
-
-$('.visible.example .ui.sidebar')
-  .sidebar({
-    context: '.visible.example .bottom.segment'
-  })
-  .sidebar('hide')
-;
-})
 
 export default {
-  beforeRouteEnter(from, to, next){
-    if(localStorage.getItem('token') == null){
-      next({name: 'login'})
-    } else {
-      next()
-    }
-  }
+  // beforeRouteEnter(from, to, next){
+  //   if(localStorage.getItem('token') == null){
+  //     next({name: 'login'})
+  //   } else {
+  //     next()
+  //   }
+  // }
 }
 </script>
 

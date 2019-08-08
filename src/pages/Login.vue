@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { hostUrl } from "../config";
 
 export default {
   data() {
@@ -44,6 +44,36 @@ export default {
       },
       loading: false
     };
+  },
+  methods: {
+
+    submit() {
+      this.loading = true;
+      var vinst = this;
+      axios
+        .post('',
+        this.user,
+        {
+          headers: {
+            "Content-type": "application/json"
+          }
+        })
+        .then(response => {
+          vinst.$store.commit("updateToken", response.data.token);
+          vinst.$router.push({name: 'dashboard-home'});
+          vinst.loading = false;
+        })
+        .catch(error => {
+          console.log(error);
+          if (error.response) {
+            console.log(error.response);
+            alert("نام کاربری یا کلمه عبور اشتباه است");
+          } else {
+            alert("خطا در ارتباط با سرور");
+          }
+          vinst.loading = false;
+        });
+    }
   },
   created(){
     var vinst = this;

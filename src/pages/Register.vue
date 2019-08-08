@@ -81,8 +81,9 @@ export default {
             //   crossDomain: true,
           })
           .then(response => {
-            vinst.$store.commit("updateToken", response.data.key);
+            vinst.$store.commit("updateToken", response.data.token);
             vinst.$router.push({name: 'dashboard-home'});
+            vinst.loading = false;
           })
           .catch(error => {
             if(error.response){
