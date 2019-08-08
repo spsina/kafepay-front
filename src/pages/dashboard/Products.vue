@@ -13,7 +13,7 @@
                 <h3>
                     عنوان محصول: {{ product.title }}
                 </h3>
-                <p style="text-align: right; text-justify: justify; line-height: 30px;">
+                <p dir="rtl" style="text-align: right; text-justify: justify; line-height: 30px;">
                     {{ product.description }}
                 </p>
                 <p style="text-align: right; text-justify: justify; line-height: 30px; font-weight: bold;">
@@ -22,14 +22,16 @@
                 <p style="text-align: right; text-justify: justify; line-height: 30px; font-weight: bold;">
                     لینک پرداخت
                 </p>
-                <a :href="product.link">
-                     {{ product.link }}
+                <a :href="'http://kafepay.com/payment/' + product.uuid">
+                     http://kafepay.com/payment/{{ product.uuid }}
                 </a>
             </div>
         </template>
     </div>
 </template>
 <script>
+import { hostUrl } from "../../config";
+
 export default {
     data(){
         return {
@@ -39,21 +41,26 @@ export default {
     },
     methods: {
         loadProducts(){
-            setTimeout(() => {
-                this.products = [];
-                for (let index = 0; index < 10; index++) {
-                    this.products.push({
-                        title: 'دمپایی',
-                        description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.',
-                        price: '۲۰۰۰۰۰ تومان',
-                        link: 'http://kaafepay.ir/payment/2r3ior23-awfef2g-afew23-fwaef'
-                    });
-                }
-                this.loading = false;
-            }, 1000);
+            console.log(localStorage.getItem('token'));
+            console.log(this.$store.getters.api_token)
+            this.axios
+                .get(hostUrl + '/api/list/products/?format=json',
+                {
+                    headers: {
+                        Authorization: "Token " + this.$store.getters.api_token,
+                        "Content-type": "application/json"
+                    }
+                })
+                .then(response => {
+                    this.products = response.data;
+                    this.loading = false;
+                })
+                .catch(error => {
+                    alert('خطا در اتصال به سرور')
+                })
         }
     },
-    mounted(){
+    created(){
         if(!this.products){
             this.loadProducts();
         }

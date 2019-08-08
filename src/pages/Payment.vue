@@ -1,9 +1,9 @@
 <template>
-  <div class="ui middle aligned center aligned grid" style="margin-top: 7em;">
+  <div class="ui middle aligned center aligned grid" style="padding-top: 7em; padding-bottom: 7em;">
     <div class="column" style="background-color: white; border: 1px solid #999999; border-radius: 15px; padding: 0px; box-shadow: 3px;">
       <h2 class="ui black header" style="background-color: #cccccc; border-radius: 15px 15px 0px 0px; padding: 15px; margin: 0px;">
         <router-link :to="{name: 'home'}" tag="a" class="content" style="font-size: 25px; font-style: italic; color: #444444;">
-          CafePay
+          KafePay
         </router-link>
       </h2>
       <form class="ui large form" style="border-radius: 0px 0px 15px 15px; overflow: hidden;">
@@ -29,7 +29,7 @@
                 </p>
                 <input style="text-align: right; margin-right: 10px; border-radius: 5px; border: 2px solid #cacaca !important;" type="text" name="phone">
             </div>
-            <div class="ui fluid large blue submit button">پرداخت</div>
+            <div @click="submitPayment" class="ui fluid large blue submit button">پرداخت</div>
         </div>
 
       </form>
@@ -53,20 +53,11 @@ export default {
         name: '',
     };
   },
-  created(){
-    var vinst = this;
-    $(document)
-      .ready(function() {
-        $('.ui.form')
-          .form()
-          .submit(function(event){
-            if( $('.ui.form').form('is valid')) {
-              event.preventDefault();
-              vinst.submit();
-            }
-          });
-      });
-  }
+  methods: {
+    submitPayment(){
+      alert('درگاه پرداخت فعال وجود ندارد')
+    }
+  },
 };
 </script>
 

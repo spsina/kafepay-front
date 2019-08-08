@@ -1,13 +1,16 @@
 <template>
   <div class="ui middle aligned center aligned grid" style="padding-top: 7em;">
+
     <div class="column" style="background-color: white; border: 1px solid #999999; border-radius: 15px; padding: 0px; box-shadow: 3px;">
       <h2 class="ui black header" style="background-color: #cccccc; border-radius: 15px 15px 0px 0px; padding: 15px; margin: 0px;">
         <router-link :to="{name: 'home'}" tag="a" class="content" style="font-size: 25px; font-style: italic; color: #444444;">
-          CafePay
+          KafePay
         </router-link>
       </h2>
       <form class="ui large form">
-        <div class="ui stacked segment">
+          <div class="ui active inverted dimmer" v-if="loading">
+              <div class="ui text loader" dir="rtl">در حال بارگذاری...</div>
+          </div>        <div class="ui stacked segment">
           <div class="field">
             <div class="ui right icon input">
               <i class="user icon"></i>
@@ -29,7 +32,7 @@
           <div class="field">
             <div class="ui right icon input">
               <i class="lock icon"></i>
-              <input type="password" style="text-align: right; border-radius: 5px; border: 1px solid #cacaca !important;" name="password1" v-model="user.password2" placeholder="کلمه عبور">
+              <input type="password" style="text-align: right; border-radius: 5px; border: 1px solid #cacaca !important;" name="password2" v-model="user.password2" placeholder="کلمه عبور">
             </div>
           </div>
           <div class="ui fluid large blue submit button">ثبت نام</div>
@@ -45,17 +48,55 @@
 </template>
 
 <script>
-import axios from "axios";
-
+import { hostUrl } from "../config";
 export default {
   data() {
     return {
       user: {
         username: "",
-        password: ""
+        password1: "",
+        password2: "",
+        email: "",
       },
       loading: false
     };
+  },
+  methods: {
+    submit() {
+      if(this.user.password1 == this.user.password2){
+        this.loading = true;
+        var vinst = this;
+        this.axios
+          .post(hostUrl + '/api/create/profile/?format=json',
+          {
+            username: this.user.username,
+            password: this.user.password1
+          },
+          {
+            headers: {
+              // 'Access-Control-Allow-Origin': '*',
+              "Content-type": "application/json"
+            }
+            // withCredentials: true,
+            //   crossDomain: true,
+          })
+          .then(response => {
+            vinst.$store.commit("updateToken", response.data.key);
+            vinst.$router.push({name: 'dashboard-home'});
+          })
+          .catch(error => {
+            if(error.response){
+              alert('لطفا ورودی های خود را کنترل کنید')
+            } else {
+              alert('خطا در اتصال به سرور')
+            }
+            console.log('error')
+            console.log(error.response)
+          })
+      } else {
+        alert('کلمه عبور با تکرار همخوانی ندارد')
+      }
+    }
   },
   created(){
     var vinst = this;
@@ -69,7 +110,7 @@ export default {
                 rules: [
                   {
                     type   : 'empty',
-                    prompt : 'Please enter your username'
+                    prompt : 'لطفا نام کاربری را وارد کنید'
                   }
                 ]
               },
@@ -78,7 +119,7 @@ export default {
                 rules: [
                   {
                     type   : 'empty',
-                    prompt : 'Please enter your e-mail'
+                    prompt : 'لطفا ایمیلتان را وارد کنید'
                   },
                   {
                     type   : 'email',
@@ -91,11 +132,7 @@ export default {
                 rules: [
                   {
                     type   : 'empty',
-                    prompt : 'Please enter your password'
-                  },
-                  {
-                    type   : 'length[8]',
-                    prompt : 'Your password must be at least 8 characters'
+                    prompt : 'لطفا پسوورد را وارد کنید'
                   }
                 ]
               },
@@ -104,7 +141,7 @@ export default {
                 rules: [
                   {
                     type   : 'empty',
-                    prompt : 'Please confirm your password'
+                    prompt : 'لطفا کلمه عبورتان را تایید کنید'
                   }
                 ]
               }

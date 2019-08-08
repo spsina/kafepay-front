@@ -3,7 +3,7 @@
     <div v-if="$route.name == 'home'" dir="rtl" id="nav" class="ui large inverted pointing menu fixed secondary" style="border: 0px;">
         <div class="backgroundnav">
             <p style="font-style: italic; font-weight: bold; margin-top: 13px; color: #fafafa; font-size: 25px;">
-                CafePay
+                KafePay
 
             </p>
         </div>
@@ -13,9 +13,9 @@
         <div class="contentnav">
             <div class="item">
 
-                <a class="cafepay-right-item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a>
-                <router-link :to="{name: 'register'}" tag="a" class="cafepay-right-item">ثبت نام</router-link>
-                <router-link :to="{name: 'login'}" tag="a" class="cafepay-right-item">ورود</router-link>
+                <a class="kafepay-right-item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a>
+                <router-link :to="{name: 'register'}" tag="a" class="kafepay-right-item">ثبت نام</router-link>
+                <router-link :to="{name: 'login'}" tag="a" class="kafepay-right-item">ورود</router-link>
             </div>
             
         </div>
@@ -65,7 +65,7 @@
 </script>
 
 <style scoped>
-.cafepay-right-item {
+.kafepay-right-item {
     padding: 3px 10px;
 }
 #nav {

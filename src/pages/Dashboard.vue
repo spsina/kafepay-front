@@ -1,26 +1,26 @@
 <template>
-<div class="ui grid">
+<div class="ui grid" style="height: 100%;">
   <div class="thirteen wide column" style="background-color: #dddddd">
     <router-view></router-view>
   </div>
-  <div class="three wide column ui visible inverted right vertical menu" style="min-height: 1000px; padding: 1px;">
+  <div class="three wide column ui visible inverted right vertical menu" style="min-height: 100%; padding: 1px;">
       <div class="item center aligned right-menu-profile-holder" style="text-align: center; margin: auto;">
           
               <img class="ui small image circular" src="../assets/user.svg" style="margin: 10px auto;">
           
 
-          <p style="font-size: 17px; color: #FFFFFF; margin-bottom: 10px;
+          <!-- <p style="font-size: 17px; color: #FFFFFF; margin-bottom: 10px;
                       font-weight: bold;">
               
                   ناشناس
               
-          </p>
+          </p> -->
 
-          <div class="ui indicating progress" id="profile-percentage" dir="ltr" data-value="" style="margin: auto; border-radius: 30px; height: 22px; width: 148px;">
+          <!-- <div class="ui indicating progress" id="profile-percentage" dir="ltr" data-value="" style="margin: auto; border-radius: 30px; height: 22px; width: 148px;">
             <div class="bar" style="border-radius: 30px; height: 22px; transition-duration: 300ms;">
                 <div class="progress"></div>
             </div>
-          </div>
+          </div> -->
 
 
       </div>
