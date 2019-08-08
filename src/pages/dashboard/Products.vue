@@ -20,6 +20,12 @@
                     قیمت: {{ product.price }}
                 </p>
                 <p style="text-align: right; text-justify: justify; line-height: 30px; font-weight: bold;">
+                    تعداد فروش: ۰
+                </p>
+                <p style="text-align: right; text-justify: justify; line-height: 30px; font-weight: bold;">
+                    کل مبلغ دریافتی: ۰ ریال
+                </p>
+                <p style="text-align: right; text-justify: justify; line-height: 30px; font-weight: bold;">
                     لینک پرداخت
                 </p>
                 <a :href="'http://kafepay.com/payment/' + product.uuid">

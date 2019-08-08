@@ -10,14 +10,17 @@
 
         
 
-        <div class="contentnav">
-            <div class="item">
+        <div class="ui right item" style="font-weight: bold; font-size: 16px;">
 
-                <a class="kafepay-right-item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a>
-                <router-link :to="{name: 'register'}" tag="a" class="kafepay-right-item">ثبت نام</router-link>
-                <router-link :to="{name: 'login'}" tag="a" class="kafepay-right-item">ورود</router-link>
-            </div>
+            <!-- <a class="kafepay-right-item mobile-button" style="font-size: 21px; "> <i class="content icon"></i> </a> -->
+            <router-link :to="{name: 'register'}" tag="a" class="kafepay-right-item">ثبت نام</router-link>
+            <router-link :to="{name: 'login'}" tag="a" class="kafepay-right-item">ورود</router-link>
+
+        </div>
+
             
+        <div class="ui item" style="font-weight: bold; font-size: 16px;">
+            تماس: ۰۹۰۱۷۹۳۸۰۹۱
         </div>
     </div>
 </template>

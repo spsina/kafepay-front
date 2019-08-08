@@ -16,6 +16,15 @@
                 <p dir="rtl" style="text-align: right; text-justify: justify; line-height: 30px;">
                     {{ gate.description }}
                 </p>
+                <p dir="rtl"  style="text-align: right; text-justify: justify; line-height: 30px;">
+                    وضعیت درگاه: <span :style="{color: gate.is_active ? 'green': 'red'}">{{ gate.is_active ? 'فعال': 'غیرفعال' }}</span>
+                </p>
+                <p dir="rtl"  style="text-align: right; text-justify: justify; line-height: 30px;">
+                    توکن درگاه: {{ gate.gate_token }}
+                </p>
+                <p dir="rtl"  style="text-align: right; text-justify: justify; line-height: 30px;">
+                    گردش مالی: ۰ ریال
+                </p>
                 <p style="text-align: right; text-justify: justify; line-height: 30px; font-weight: bold;">
                     آدرس سایت
                 </p>

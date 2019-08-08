@@ -9,12 +9,13 @@
               <img class="ui small image circular" src="../assets/user.svg" style="margin: 10px auto;">
           
 
-          <!-- <p style="font-size: 17px; color: #FFFFFF; margin-bottom: 10px;
-                      font-weight: bold;">
+          <p style="font-size: 17px; color: #FFFFFF; margin-bottom: 10px;">
               
-                  ناشناس
+                  کیف پول: ۰ ریال
               
-          </p> -->
+          </p>
+
+          <div class="ui secondary button" @click="requestCheckout">درخواست تسویه</div>
 
           <!-- <div class="ui indicating progress" id="profile-percentage" dir="ltr" data-value="" style="margin: auto; border-radius: 30px; height: 22px; width: 148px;">
             <div class="bar" style="border-radius: 30px; height: 22px; transition-duration: 300ms;">
@@ -32,6 +33,31 @@
               </div>
             </router-link>
         </div>
+        
+        <div class="ui item accordion" style="text-align: right; padding-right: 25px;"  dir="rtl">
+          <div class="title" style="color: white">
+            <span style="padding-left: 40%;">اطلاعات کاربری</span>
+            <i class="left dropdown icon"></i>
+          </div>
+          <div class="content">
+          
+        <div class="item" :class="{'active': $route.name=='dashboard-new-product'}" style="text-align: right; padding-right: 25px;">
+            <router-link :to="{name: 'dashboard-new-product'}" tag="a">
+              <div class="content">
+                  تکمیل یا ویرایش اطلاعات
+              </div>
+            </router-link>
+        </div>
+        <div class="item" :class="{'active': $route.name=='dashboard-new-product'}" style="text-align: right; padding-right: 25px;">
+            <router-link :to="{name: 'dashboard-new-product'}" tag="a">
+              <div class="content">
+                  مشاهده اطلاعات
+              </div>
+            </router-link>
+        </div>
+          </div>
+        </div>
+        
         <div class="item" :class="{'active': $route.name=='dashboard-new-product'}" style="text-align: right; padding-right: 25px;">
             <router-link :to="{name: 'dashboard-new-product'}" tag="a">
               <div class="content">
@@ -81,6 +107,17 @@ export default {
   //     next()
   //   }
   // }
+  methods: {
+    requestCheckout(){
+      alert('امکان تسویه وجود ندارد.')
+    }
+  },
+  mounted(){
+    $(document).ready(function(){
+      $('.ui.accordion').accordion();
+      $('.ui.dropdown').dropdown();
+    })
+  }
 }
 </script>
 
