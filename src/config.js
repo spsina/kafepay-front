@@ -1,4 +1,4 @@
-const hostUrl = 'https://kafepay.com'
+const hostUrl = 'http://kafepay.com'
 
 export {
   hostUrl,
